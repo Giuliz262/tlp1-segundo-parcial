@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Reserva = require('./models/Reserva.js');
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../database.js');
 
 // Ruta para crear una reserva
 router.post('/', (req, res) => {
@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
 
 
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../database.js');
 
 const Reserva = sequelize.define('Reserva', {
   dni: {
@@ -32,7 +32,7 @@ const Reserva = sequelize.define('Reserva', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  
+
   apellido: {
     type: DataTypes.STRING,
     allowNull: false

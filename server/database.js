@@ -1,9 +1,13 @@
-const { Sequelize } = require('sequelize');
+const { sequelize, DataTypes, Model } = require('sequelize');
 
-const sequelize = new Sequelize(process.env.DB_RESERVADB, process.env.DB_GIULIANA, process.env.DB_45381, {
-  host: process.env.DB_LOCALHOST,
-  port: process.env.DB_3306,
-  dialect: process.env.DB_MYSQL
+const sequelize = new sequelize('reservadb',  {
+  host: 'localhost',
+  port: '3306',
+  dialect: 'mysql'
 });
 
-module.exports = sequelize;
+module.exports = {
+    sequelize,
+    DataTypes,
+    Model
+}

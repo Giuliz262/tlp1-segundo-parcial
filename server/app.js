@@ -2,20 +2,17 @@ require('dotenv').config();
 
 const cors = require('cors');
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  dialect: process.env.DB_DIALECT
-});
+const sequelize = require('./database'); 
 
 const app = express();
 
 // Middlewares
 // TODO: Implementar middlewares
 app.use(cors());
+app.use(path());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
